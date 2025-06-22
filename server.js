@@ -16,6 +16,9 @@ app.use(express.json());
 app.use(errorHandler);
 
 // Routes
+app.get("/ping", (req, res) => {
+  res.status(200).json({ success: true, message: "Server is live!" })
+})
 app.use('/api/v1/floor',floorRoutes)
 app.use('/api/v1/room',roomRoutes)
 app.use('/api/v1/bed',bedRoutes)
