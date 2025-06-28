@@ -50,3 +50,16 @@ export const deleteRoom = async (req, res, next) => {
     next(error);
   }
 };
+
+export const getAllRooms = async (req, res) => {
+  try {
+    const rooms = await Room.find()
+      .populate('floorId', 'floorNumber') // only bring floorNumber from Floor
+      .select('roomNumber type floorId') // include these fields
+      .sort({ roomNumber: 1 });
+
+    res.json({ success: true, data: rooms });
+  } catch (err) {
+    res.status(500).json({ success: false, message: "Failed to fetch rooms" });
+  }
+};

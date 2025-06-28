@@ -9,7 +9,7 @@ export const addBed = async (req, res, next) => {
 
     // 1. Load room to get its sharing type
     const room = await Room.findById(roomId);
-    if (!room) return next(new ApiError('Room not found', 404));
+    if (!room) return errorResponse(res, "Room not found", 404)
 
     // 2. Determine max beds allowed
     const maxBeds = parseInt(room.type[0], 10);  

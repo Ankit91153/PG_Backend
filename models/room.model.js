@@ -1,5 +1,6 @@
 import mongoose from 'mongoose';
 import Bed from './bed.model.js';
+import Tenant from './tenant.model.js';
 
 const roomSchema = new mongoose.Schema({
   roomNumber: {

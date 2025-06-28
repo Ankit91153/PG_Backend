@@ -2,6 +2,7 @@
 import mongoose from 'mongoose';
 import Room from './room.model.js';
 import Bed from './bed.model.js';
+import Tenant from './tenant.model.js';
 
 const floorSchema = new mongoose.Schema({
   floorNumber: {

@@ -3,7 +3,8 @@ import {
   addRoom,
   getRoomsByFloor,
   updateRoom,
-  deleteRoom
+  deleteRoom,
+  getAllRooms
 } from '../controllers/room.controller.js';
 import { validate } from '../middlewares/validate.js';
 import { roomSchema, roomUpdateSchema } from '../validators/room.validator.js';
@@ -23,6 +24,11 @@ router.get(
   '/floor/:floorId',
   checkObjectId('floorId'),
   getRoomsByFloor
+);
+
+router.get(
+  '/',
+  getAllRooms
 );
 
 // Update room (validate id param and body)

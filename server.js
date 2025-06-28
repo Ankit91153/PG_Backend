@@ -7,11 +7,14 @@ import floorRoutes from './routes/floor.routes.js'
 import roomRoutes from './routes/room.routes.js'
 import bedRoutes from './routes/bed.routes.js'
 import tenantRoutes from './routes/tenant.routes.js'
+import dashboardRoutes from './routes/dashboard.routes.js'
+import cors from 'cors';
 dotenv.config(); // load .env file
 
 const app = express();
 
 // Middleware
+app.use(cors());
 app.use(express.json());
 app.use(errorHandler);
 
@@ -23,6 +26,7 @@ app.use('/api/v1/floor',floorRoutes)
 app.use('/api/v1/room',roomRoutes)
 app.use('/api/v1/bed',bedRoutes)
 app.use('/api/v1/tenant',tenantRoutes)
+app.use('/api/v1/dashboard', dashboardRoutes);
 
 
 
